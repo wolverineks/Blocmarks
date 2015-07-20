@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  get 'password/new'
+
+  get 'sign_in' => 'sessions#new', as: 'sign_in'
+  get 'sign_out' => 'sessions#destroy', as: 'sign_out'
+  get 'sign_up' => 'users#new', as: 'sign_up'
+  get 'password_reset' => 'password#new', as: 'password_reset'
+
+  root to: 'welcome#index'
+  resources :users, except: :index
+  resources :sessions
   get 'incoming/create'
 
   # The priority is based upon order of creation: first created -> highest priority.

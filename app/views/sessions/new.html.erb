@@ -1,0 +1,26 @@
+<h1>Sign in</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= form_tag ("/sessions") do %>
+
+    <div class="form-group">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, '', placeholder: "Enter email", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, '', placeholder: "Enter password", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= submit_tag 'Submit', class: "btn btn-success", data: { disable_with: 'Submitting...' } %>
+    </div>
+
+    <% end %>
+
+    <%= link_to "Forgot Your Password?", password_reset_path %><br>
+    <%= link_to "Sign Up", new_user_path %>
+  </div>
+</div>
