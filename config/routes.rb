@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'password/new'
+  root to: 'welcome#index'
 
   get 'sign_in' => 'sessions#new', as: 'sign_in'
   get 'sign_out' => 'sessions#destroy', as: 'sign_out'
   get 'sign_up' => 'users#new', as: 'sign_up'
-  get 'password_reset' => 'password#new', as: 'password_reset'
+  get 'incoming/create'
+  
+  post :incoming, to: 'incoming#create'
 
-  root to: 'welcome#index'
   resources :users, except: :index
   resources :sessions
-  get 'incoming/create'
+  resources :password, only: [:new, :edit]
+  post 'reset_password' => 'password#create'
+  post 'update_password' => 'password#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

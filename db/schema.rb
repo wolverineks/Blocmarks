@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716164822) do
+ActiveRecord::Schema.define(version: 20150720203650) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.string   "url"
@@ -33,10 +33,12 @@ ActiveRecord::Schema.define(version: 20150716164822) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "password_digest"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "reset_token"
+    t.datetime "reset_token_sent_at"
+    t.string   "auth_token"
   end
 
 end

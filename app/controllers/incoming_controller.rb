@@ -4,11 +4,16 @@ class IncomingController < ApplicationController
   def create
     # {sender: user.email, subject: topic.title, 'body-plain': 'http://example.org'}
 
-    title = params[:subject]
-    topic = Topic.find_by(title: title)
-    topic.bookmarks.create(
-      url: params['body-plain']) 
+    puts "INCOMING PARAMS HERE: #{params}"
+      user = User.find_by(email: params[:sender])
+      title = params[:subject]
+      topic = Topic.find_by(title: title)
 
-    head 200
+      User.create(email: params[:sender]) unless user
+
+      topic.bookmarks.create(
+        url: params['body-plain']) 
+
+      head 200
   end
 end

@@ -1,8 +1,8 @@
-<h1>Sign in</h1>
+<h1>Sign In</h1>
 
 <div class="row">
   <div class="col-md-8">
-    <%= form_tag ("/sessions") do %>
+    <%= form_tag sessions_path do %>
 
     <div class="form-group">
       <%= label_tag :email %>
@@ -15,12 +15,17 @@
     </div>
 
     <div class="form-group">
+      <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+      <%= label_tag :remember_me %>
+    </div>
+
+    <div class="form-group">
       <%= submit_tag 'Submit', class: "btn btn-success", data: { disable_with: 'Submitting...' } %>
     </div>
 
     <% end %>
 
-    <%= link_to "Forgot Your Password?", password_reset_path %><br>
+    <%= link_to "Forgot Your Password?", new_password_path %><br>
     <%= link_to "Sign Up", new_user_path %>
   </div>
 </div>

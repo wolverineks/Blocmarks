@@ -14,7 +14,8 @@
       <li><%= link_to "Blocmarks", root_path %></li>
       
     <div class="pull-right user-info">
-      <% if session[:user_id].present? %>
+      <% if current_user.present? %>
+        <%= current_user.email %>
         <%= link_to session_path(session), method: :delete, class: 'btn btn-primary btn-sm' do %>
           <span class="glyphicon glyphicon-log-out"></span>
         <% end %>

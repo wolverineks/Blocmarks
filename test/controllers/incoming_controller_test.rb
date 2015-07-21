@@ -4,7 +4,8 @@ class IncomingControllerTest < ActionController::TestCase
   test "should get create" do
     # 1 Setup the world
     user = User.create!(
-      email: 'testemail@email.com')
+      email: 'testemail@email.com',
+      password: 'helloworld')
     topic = Topic.create!(
       title: 'cats')
     
