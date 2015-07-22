@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 ruby '2.2.0'
 
-gem 'bcrypt-ruby'#, require: 'bcrypt'
+gem 'bcrypt'#, require: 'bcrypt'
 # gem 'dateslices'
 # User GroupDate Gem for grouping info by time
 gem 'groupdate'
